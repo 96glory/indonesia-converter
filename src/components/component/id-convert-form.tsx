@@ -21,12 +21,12 @@ To read more about using these font, please visit the Next.js documentation:
 
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { useState } from "react"
+import { SetStateAction, useState } from "react"
 
 export function IdConvertForm() {
   const [inputValue, setInputValue] = useState("")
   const [convertedValue, setConvertedValue] = useState("")
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: { target: { value: SetStateAction<string> } }) => {
     setInputValue(e.target.value)
   }
   const handleConvert = () => {
@@ -69,7 +69,7 @@ export function IdConvertForm() {
     setConvertedValue(transformedChars.join(''))
   }
 
-  const handleKeyDown = (e) => {
+  const handleKeyDown = (e: { key: string }) => {
     if (e.key === "Enter") {
       handleConvert()
     }
